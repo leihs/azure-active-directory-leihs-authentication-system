@@ -1,0 +1,16 @@
+[Unit]
+Description={{app_name}} Service
+After=syslog.target
+
+[Service]
+Restart=always
+RuntimeMaxSec=86400
+WorkingDirectory={{app_dir}}
+User={{app_user}}
+Group={{app_user}}
+Environment=PATH=/home/{{app_user}}/.rubies/ruby-{{app_ruby_version}}/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=/home/{{app_user}}/.rubies/ruby-{{app_ruby_version}}/bin/ruby -S \
+    bundle exec ruby {{app_name}} -c {{app_dir}}/config.yml
+
+[Install]
+WantedBy=multi-user.target

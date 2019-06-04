@@ -1,0 +1,12 @@
+name: LEIHS/PHZH-ExtAuth
+windows: 
+  2: 
+    name: phzh-ms-open-id-auth-system
+    command: |
+      bundle exec ./phzh-ms-open-id-auth-system -c dev/config.yml
+  3: 
+    name: deploy
+    command: |
+      # export INVENTORY_HOSTS_FILE=
+      # export TARGET_MACHINE=
+      # ansible-playbook -i $INVENTORY_HOSTS_FILE -l $TARGET_MACHINE deploy/deploy_play.yml
